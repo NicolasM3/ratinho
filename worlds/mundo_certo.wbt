@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.9677294678974301 0.25168684316517603 0.012385876654678541 1.1182213584787528
-  position 0.19872131853276304 2.520115427904308 1.1268581525999934
+  orientation -0.21943926358479804 0.9746889116495464 -0.04275435772859044 0.9583847623293187
+  position -0.12342636548493485 -0.26310499568854956 -0.207524767498072
 }
 TexturedBackground {
 }
@@ -19,22 +19,96 @@ TexturedBackgroundLight {
 }
 Robot {
   translation -0.4170344022804436 -0.28760431947581383 -0.3977603863396623
-  rotation -0.005973330219332748 0.9999146777317218 -0.011617081507751943 -2.122720479410841
+  rotation 0.005973330219332747 -0.9999146777317218 0.011617081507751943 2.122720479410841
   children [
+    DEF nariz Transform {
+      translation -0.003 0.0012 -0.129
+      children [
+        DEF shape_cam Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.001
+            subdivision 4
+          }
+        }
+      ]
+    }
+    DEF olho1 Solid {
+      translation 0.012 0.01 -0.11
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.015
+          }
+        }
+      ]
+    }
+    DEF pupila1 Solid {
+      translation 0.012 0.013 -0.121
+      rotation 0 -1 0 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.0063
+          }
+        }
+      ]
+      name "solid(2)"
+    }
+    DEF pupila2 Solid {
+      translation -0.012 0.013 -0.121
+      rotation 0 -1 0 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.0063
+          }
+        }
+      ]
+      name "solid(3)"
+    }
+    DEF olho2 Solid {
+      translation -0.012 0.01 -0.11
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.015
+          }
+        }
+      ]
+      name "solid(1)"
+    }
     Camera {
-      translation 0 0.005 -0.012
-      rotation 0.997247439051535 -0.029256912880747554 -0.06812912999476152 0
+      translation 0.003 0.0012 -0.1285
       children [
         Transform {
           children [
             DEF shape_cam Shape {
               appearance PBRAppearance {
-                baseColor 0.9 0.9 0.1
+                baseColor 0 0 0
                 roughness 1
                 metalness 0
               }
               geometry Sphere {
-                radius 0.0026
+                radius 0.001
                 subdivision 4
               }
             }
@@ -207,7 +281,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.0652051 -0.013834578947579529 -0.04596983233831605
-        rotation -1 0 0 1.0759574234514586
+        rotation -1 0 0 1.0759574234514582
         children [
           Transform {
             rotation 0 0 1 1.5707996938995747
@@ -247,8 +321,6 @@ Robot {
           density -1
           mass 0.005
         }
-        linearVelocity 0.04984455826162873 2.568246570211658e-06 0.029629830874610404
-        angularVelocity 1.5311153924271617 0.007407191695628742 -2.494060705570786
       }
     }
     HingeJoint {
@@ -267,7 +339,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.0652051 -0.0116544 0.0357041
-        rotation -1 0 0 1.0759738149327545
+        rotation -1 0 0 1.075973814932752
         children [
           Transform {
             rotation 0 0 1 1.5707996938995747
@@ -307,8 +379,6 @@ Robot {
           density -1
           mass 0.005
         }
-        linearVelocity 0.051772793869697305 3.886802094391287e-05 0.03172376942512541
-        angularVelocity 1.5311156578536438 0.007407215646668904 -2.494060793076814
       }
     }
     HingeJoint {
@@ -327,7 +397,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.0747912 -0.011313795219734402 0.03965895483016084
-        rotation 0.9999999966290041 -2.3005040673961524e-05 -7.882106080015851e-05 4.755655893953725
+        rotation 0.9999999966290041 -2.3005040673961612e-05 -7.88210608001588e-05 4.755655893953725
         children [
           Transform {
             rotation 0 0 1 1.5707996938995747
@@ -367,8 +437,6 @@ Robot {
           density -1
           mass 0.005
         }
-        linearVelocity 0.049907006369954404 -2.5399885137125987e-05 0.030642515284783622
-        angularVelocity 1.5310522444779513 0.004655975285961223 -2.4940978690939426
       }
     }
     HingeJoint {
@@ -427,13 +495,11 @@ Robot {
           density -1
           mass 0.005
         }
-        linearVelocity 0.051514717765323854 0.004635431336198572 0.030667167184749346
-        angularVelocity 1.5310520711484237 0.004656064517716657 -2.4940978559671687
       }
     }
     DEF rus_shape Shape {
       appearance PBRAppearance {
-        baseColor 0.58 0.4 1
+        baseColor 0.32549 0.243137 0.215686
         roughness 1
         metalness 0
       }
@@ -462,8 +528,6 @@ Robot {
   battery [
     0
   ]
-  linearVelocity 0.05066200272325494 0.002336647683511955 0.030589552735241304
-  angularVelocity -0.04252184170626412 0.00958904493130561 0.06008497515438332
 }
 Solid {
   translation 0 0.08 0
