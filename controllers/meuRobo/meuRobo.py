@@ -84,6 +84,8 @@ class MeuRobot:
         self.motor_dir_back.setVelocity(velocidade)
         self.motor_dir_front.setVelocity(velocidade)    
 
+        self.obstaculo = True
+
 class TI502(MeuRobot):
     def move_forward(self):
         self.motor_esq_back.setVelocity(velocidade)
@@ -96,27 +98,42 @@ class TI502(MeuRobot):
         self.motor_esq_front.setVelocity(-velocidade)
         self.motor_dir_back.setVelocity(-velocidade)
         self.motor_dir_front.setVelocity(-velocidade) 
-        
+
+    def turn_right(self, velocity):
+        self.motor_esq_back.setVelocity(velocity)
+        self.motor_esq_front.setVelocity(velocity)
+        self.motor_dir_back.setVelocity(0)
+        self.motor_dir_front.setVelocity(0)
+
+    def turn_left(self, velocity):
+        self.motor_dir_back.setVelocity(velocity)
+        self.motor_dir_front.setVelocity(velocity)
+        self.motor_esq_back.setVelocity(0)
+        self.motor_esq_front.setVelocity(0) 
+
     def run(self):
 
         while self.robot.step(timestep) != -1:
             linha_dir = self.sensor_linha_dir.getValue()
             linha_esq = self.sensor_linha_esq.getValue()
-            # print(linha_dir, linha_esq)
-            # se sair da linha esquerda,
-            # viramos a direita
-            if(linha_esq != 1000 and linha_dir == 1000):
-                self.motor_dir_back.setVelocity(10)
-                self.motor_dir_front.setVelocity(10)
-                self.motor_esq_back.setVelocity(0)
-                self.motor_esq_front.setVelocity(0) 
+            
+            # print(self.robot.getDevice("ir1").getValue())
+
+            if(self.robot.getDevice("ir2").getValue() > 0):
+                self.turn_left(10)
+                self.obstaculo = True
+
+            elif(self.robot.getDevice("ir1").getValue() > 0 and self.obstaculo):
+                self.turn_right(5)
+                if(linha_esq != 1000 and linha_dir == 1000): 
+                    self.obstaculo = False
+        
+            elif(linha_esq != 1000 and linha_dir == 1000):
+                self.turn_left(10)
             # se sair da linha direita,
             # viramos a esquerda
             elif(linha_dir != 1000 and linha_esq == 1000):
-                self.motor_esq_back.setVelocity(10)
-                self.motor_esq_front.setVelocity(10)
-                self.motor_dir_back.setVelocity(0)
-                self.motor_dir_front.setVelocity(0)
+                self.turn_right(10)
                 
             else:
                 self.move_forward()

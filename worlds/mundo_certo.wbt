@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.21943926358479804 0.9746889116495464 -0.04275435772859044 0.9583847623293187
-  position -0.12342636548493485 -0.26310499568854956 -0.207524767498072
+  orientation -0.20620896223726085 -0.9404599100702098 -0.27020921791042785 1.2260564829261091
+  position -2.185976354174513 0.3837767607526998 0.11450892080718769
 }
 TexturedBackground {
 }
@@ -18,8 +18,8 @@ RectangleArena {
 TexturedBackgroundLight {
 }
 Robot {
-  translation -0.4170344022804436 -0.28760431947581383 -0.3977603863396623
-  rotation 0.005973330219332747 -0.9999146777317218 0.011617081507751943 2.122720479410841
+  translation -0.839524 -0.288649 -0.5456
+  rotation -0.0004741811322785698 -0.9999971836932182 0.0023254586398520592 1.8132311808062496
   children [
     DEF nariz Transform {
       translation -0.003 0.0012 -0.129
@@ -264,10 +264,11 @@ Robot {
         0.15 0 0
       ]
       numberOfRays 2
+      aperture 0.4
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position 82.17511772642615
+        position 796.5199572586969
         axis -1 0 0
         anchor 0.065207 -0.0125308 -0.0442235
       }
@@ -280,8 +281,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 0.0652051 -0.013834578947579529 -0.04596983233831605
-        rotation -1 0 0 1.0759574234514582
+        translation 0.04520499999999998 -0.01043381225793869 -0.044811973873374704
+        rotation 1 2.661454917307375e-09 1.3812493462959212e-09 0.8623280605856796
         children [
           Transform {
             rotation 0 0 1 1.5707996938995747
@@ -325,7 +326,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position 82.17513386798171
+        position 796.5199874750166
         axis -1 0 0
         anchor 0.0652051 -0.0116544 0.0357041
       }
@@ -338,8 +339,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 0.0652051 -0.0116544 0.0357041
-        rotation -1 0 0 1.075973814932752
+        translation 0.0452051 -0.011654409728886114 0.03570424108631676
+        rotation 0.9999999999999999 -4.728265439820314e-10 -1.756774148771738e-10 0.8622975964618443
         children [
           Transform {
             rotation 0 0 1 1.5707996938995747
@@ -383,7 +384,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position -61.386269231769795
+        position 793.1902107986572
         axis -1 0 0
         anchor -0.0747912 -0.0112669 0.0392743
       }
@@ -396,8 +397,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation -0.0747912 -0.011313795219734402 0.03965895483016084
-        rotation 0.9999999966290041 -2.3005040673961612e-05 -7.88210608001588e-05 4.755655893953725
+        translation -0.04479110000000004 -0.011288379054858824 0.03965682411715129
+        rotation 0.999999996838007 -2.4685236102644774e-05 -7.559514171530262e-05 4.692377638119173
         children [
           Transform {
             rotation 0 0 1 1.5707996938995747
@@ -441,7 +442,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position -61.38627733939175
+        position 793.190194546416
         axis -1 0 0
         anchor -0.074793 -0.0116131 -0.0462509
       }
@@ -454,8 +455,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation -0.074793 -0.011571196546284896 -0.04659457731547255
-        rotation -1 0 0 1.4533414517531413
+        translation -0.044792999999999986 -0.011593025922494513 -0.046596453861810716
+        rotation 1 2.977459319658215e-15 -9.626007340422603e-17 4.76657374604278
         children [
           Transform {
             rotation 0 0 1 1.5707996938995747
@@ -563,4 +564,51 @@ Solid {
     }
   ]
   name "tinker.obj"
+}
+Solid {
+  translation 0 -0.29 0.21
+  children [
+    Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 0.05 0.05 0.05
+      }
+    }
+  ]
+  boundingObject Box {
+    size 0.05 0.05 0.05
+  }
+}
+Solid {
+  translation 0 -0.29 -0.21
+  children [
+    Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 0.05 0.05 0.05
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject Box {
+    size 0.05 0.05 0.05
+  }
+}
+Solid {
+  translation -0.49 -0.29 -0.46
+  children [
+    Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 0.05 0.05 0.05
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject Box {
+    size 0.05 0.05 0.05
+  }
 }
